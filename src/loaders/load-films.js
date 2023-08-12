@@ -1,6 +1,6 @@
 import  Film  from "../models/film.js";
 
-const apiFilmMapper = (jsonObject) => {
+export const apiFilmMapper = (jsonObject) => {
   const {
     title,
     episode_id,
@@ -27,12 +27,3 @@ const apiFilmMapper = (jsonObject) => {
     species
   })
 };
-
-
-export const loadFilm = async() => {
-  const url = `https://swapi.dev/api/films/`;
-  const res = await fetch(url);
-  const data = await res.json();
-  const films = data.results.map(apiFilmMapper);
-  return films;
-}

@@ -1,15 +1,13 @@
 import { loadFilm } from "../loaders/load-films";
 
-const state = {
-  films: [],
-}
+let filmsInMemory;
 
-const loadFilmsInMemory = async() => {
+export const loadFilmsInMemory = async() => {
+  if (filmsInMemory) return;
   const films = await loadFilm();
-  state.films = films; 
+  filmsInMemory = films; 
 }
 
-export default {
-  loadFilmsInMemory,
-  getFilms: () => [...state.films]
-};
+
+
+export const getFilms = () => [...filmsInMemory];

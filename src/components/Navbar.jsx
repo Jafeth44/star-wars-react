@@ -14,11 +14,11 @@ const Navbar = () => {
   );
 };
 
-function NavLinks({ name, route }) {
+function NavLinks({ name, route, fn }) {
   const resolvedPath = useResolvedPath(route);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
   return (
-    <Link to={route} className={isActive ? "active" : ""}>
+    <Link to={route} className={isActive ? "active" : ""} onClick={fn}>
       {name}
     </Link>
   );

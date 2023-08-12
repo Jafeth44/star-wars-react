@@ -1,3 +1,60 @@
+@font-face {
+  font-family: StarW;
+  src: url(/public/fonts/Starjhol.ttf);
+}
+
+.film-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px 30px;
+  backdrop-filter: blur(3px);
+  margin: 20px;
+  margin-bottom: 70px;
+  /* padding: 20px; */
+  max-width: 1000px;
+  z-index: 2;
+  overflow: scroll;
+}
+
+.loading {
+  color: rgb(255, 251, 0);
+  font-size: 3rem;
+  font-family: StarW;
+  grid-column-end: 3;
+  grid-row-end: 2;
+  background: none;
+  transition: ease-in-out .30s;
+}
+
 .film-card {
+  background-color: rgba(77, 77, 77, 0.5);
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.171);
   color: white;
+  /* width: 100%; */
+  border-radius: 4px;
+  transition: ease-in-out .30s;
+}
+
+.film-card h3 {
+  margin: 0 5px;
+  text-align: center;
+  font-family: Jedi;
+  letter-spacing: 0.15ch;
+  font-weight: 400;
+    transition: ease-in-out .30s;
+}
+
+.film-card h4 {
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.film-card img {
+  width: 80%;
+  margin: 10px;
 }
