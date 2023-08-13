@@ -47,6 +47,13 @@ a {
     color: rgb(255, 252, 95);
   }
 
+  &.pending {
+    background-color: rgba(115, 143, 84, 0.459);
+    box-shadow: 0 0 10px rgba(143, 143, 84, 0.459);
+    transition: ease-in-out .30s;
+    color: rgb(159, 255, 95);
+  }
+
   &:first-of-type {
     border-radius: 4px 0 0 4px;
   }

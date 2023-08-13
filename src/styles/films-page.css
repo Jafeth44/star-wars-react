@@ -13,17 +13,6 @@
   /* padding: 20px; */
   max-width: 1000px;
   z-index: 2;
-  overflow: scroll;
-}
-
-.loading {
-  color: rgb(255, 251, 0);
-  font-size: 3rem;
-  font-family: StarW;
-  grid-column-end: 3;
-  grid-row-end: 2;
-  background: none;
-  transition: ease-in-out .30s;
 }
 
 .film-card {
@@ -38,6 +27,14 @@
   /* width: 100%; */
   border-radius: 4px;
   transition: ease-in-out .30s;
+
+  &:hover {
+    scale: 1.02;
+    cursor: pointer;
+    background-color: rgba(97, 97, 97, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.274);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
 }
 
 .film-card h3 {

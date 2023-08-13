@@ -1,0 +1,78 @@
+@font-face {
+  font-family: StarW;
+  src: url(/public/fonts/Starjhol.ttf);
+}
+
+.film-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  margin: 20px;
+  margin-bottom: 70px;
+}
+
+.film-detail {
+  max-width: 1000px;
+  background-color: rgba(77, 77, 77, 0.5);
+  padding: 10px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.171);
+  color: white;
+  border-radius: 4px;
+  transition: ease-in-out .30s;
+}
+
+.film-detail > div > * {
+  padding: 10px;
+}
+
+.film-detail > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.film-detail h3 {
+  font-size: 2rem;
+  margin: 0 5px;
+  text-align: center;
+  font-family: Jedi;
+  letter-spacing: 0.15ch;
+  font-weight: 400;
+}
+
+.film-detail h4 {
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.film-detail > div > p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.film-detail img {
+  width: 50%;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.film-detail button {
+  margin: 0 auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: transparent;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: yellow;
+  border-radius: 5px;
+
+  &:hover {
+    color: rgb(255, 255, 116);
+    cursor: pointer;
+  }
+}

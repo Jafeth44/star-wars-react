@@ -35,12 +35,36 @@ const apiPeopleMapper = (jsonObject) => {
 }
 
 
-export const loadPeople = async(page = 1) => {
-  const url = `https://swapi.dev/api/people/?page=${page}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  const people = data.results.map(apiPeopleMapper);
-  console.log(people);
-  return people;
+export const loadPeople = async({params}) => {
+  let url = (`https://swapi.dev/api/people/?page=`);
+  if (typeof params.id === 'undefined') {
+    params.id = 1;
+    url = await fetch(url+1); 
+  } else {
+    url = await fetch(url+params.id);
+  }
+  const res = await url.json();
+  const data = res.results.map(apiPeopleMapper);
+  return data;
 }
-loadPeople(3)
+
+export const loadPerson = async({params}) => {
+  const pageNum = parseInt(params.pageId);
+  let personNum = parseInt(params.personId);
+  pageNum == 1 ? 
+    personNum : 
+  pageNum == 2 ? 
+    personNum + 10 :
+  pageNum == 3 ?
+    personNum + 20 :
+  pageNum == 4 ?
+    personNum + 30 :
+  pageNum == 5 ? 
+    personNum + 40 :
+    ''
+
+  const url = await fetch(`https://swapi.dev/api/people/${params.personId}`);
+  const res = await url.json();
+  const data = apiPeopleMapper(res);
+  return data;
+}

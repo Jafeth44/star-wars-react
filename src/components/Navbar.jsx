@@ -1,26 +1,32 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { NavLink, Navigate, useNavigation } from "react-router-dom";
 import "../styles/nav-bar.css";
+import { People } from "../pages/People";
+
 
 const Navbar = () => {
   return (
     <nav>
       <NavLinks name={"films"} route={"/films"}/>
-      <NavLinks name={"planets"} route={"/planets"}/>
-      <NavLinks name={"people"} route={"/people"}/>
-      <NavLinks name={"species"} route={"/species"}/>
-      <NavLinks name={"starships"} route={"/starships"}/>
-      <NavLinks name={"vehicles"} route={"/vehicles"}/>
+      <NavLinks name={"people"} route={"people"}/>
+      <NavLinks name={"planets"} route={"/planets/1"} />
+      <NavLinks name={"species"} route={"/species/1"} />
+      <NavLinks name={"starships"} route={"/starships/1"} />
+      <NavLinks name={"vehicles"} route={"/vehicles/1"} />
     </nav>
   );
 };
 
-function NavLinks({ name, route, fn }) {
-  const resolvedPath = useResolvedPath(route);
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+function NavLinks({ name, route }) {
+  const navigation = useNavigation();
   return (
-    <Link to={route} className={isActive ? "active" : ""} onClick={fn}>
+    <NavLink 
+      to={route} 
+      className={({ isActive, isPending }) =>
+      isPending ? "pending" : navigation.state === 'loading' ? '' : isActive ? "active" : ''
+      }
+      >
       {name}
-    </Link>
+    </NavLink>
   );
 }
 export default Navbar;
