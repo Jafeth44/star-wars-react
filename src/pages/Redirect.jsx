@@ -1,13 +1,18 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Footer } from "../components/Footer";
+import Header from "../components/Header";
+import Stars from "../components/Stars";
 
 export const Redirect = () => {
-  const shouldRedirect = true;
-  const navigate = useNavigate();
-  useEffect(() => {
-    console.log('redirecting...');
-    if (shouldRedirect) navigate('/people/1', {relative: 'path'});
-    return;
-  },[])
-  return <h1>Loading...</h1>
+  return (
+    <>
+      <div className="bg-animation">
+        <Stars />
+      </div>
+      <div className="content">
+        <Header />
+        <h1>Loading...</h1>
+        <Footer />
+      </div>
+    </>
+  );
 };

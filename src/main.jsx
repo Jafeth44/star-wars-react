@@ -10,6 +10,7 @@ import { Starships } from './pages/Starships.jsx';
 import { Vehicles } from './pages/Vehicles.jsx';
 import { FilmDetail } from './pages/FilmDetail.jsx';
 import { loadPeople } from './loaders/load-people.js';
+import { Redirect } from './pages/Redirect.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
         path: 'films',
         element: <Films />,
         loader: fetchFilms,
+
       },
       {
         path: 'films/:id',
@@ -62,5 +64,5 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>
+  <RouterProvider router={router} fallbackElement={<Redirect />}/>
 )
