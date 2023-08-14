@@ -21,7 +21,7 @@ export const FilmDetail = () => {
           <p>{openingCrawl}</p>
           <h4>Director: {director}</h4>
           <h4>Release date: {releaseDate}</h4>
-          <button onClick={() => navigation("/films", { relative: "path" })}>
+          <button onClick={() => navigation(-1)}>
            ← Back
           </button>
         </div>

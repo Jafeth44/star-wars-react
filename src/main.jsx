@@ -9,8 +9,9 @@ import { Species } from './pages/Species.jsx';
 import { Starships } from './pages/Starships.jsx';
 import { Vehicles } from './pages/Vehicles.jsx';
 import { FilmDetail } from './pages/FilmDetail.jsx';
-import { loadPeople } from './loaders/load-people.js';
+import { loadPeople, loadPerson } from './loaders/load-people.js';
 import { Redirect } from './pages/Redirect.jsx';
+import { PersonDetail } from './pages/PersonDetail.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,14 +35,14 @@ const router = createBrowserRouter([
         loader: loadPeople,
       },
       {
-        path: 'people/:id',
+        path: 'people/:pageId',
         element: <People />,
         loader: loadPeople,
       },
       {
-        path: 'people/character-profile/:id',
-        element: <People />,
-        loader: loadPeople,
+        path: 'people/:id/data',
+        element: <PersonDetail />,
+        loader: loadPerson,
       },
       {
         path: 'planets',

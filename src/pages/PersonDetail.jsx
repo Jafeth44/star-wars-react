@@ -1,25 +1,30 @@
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-import "../styles/film-detail.css";
+import "../styles/person-detail.css";
+import PlanetsList from "../components/PlanetsList";
+import StarshipsList from "../components/StarshipsList";
+import SpeciesList from "../components/SpeciesList";
+import VehiclesList from '../components/VehiclesList';
 
 export const PersonDetail = () => {
-  const { pageId } = useParams();
-  const navigation = useNavigate();
-  const { name } = useLoaderData();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { name, planets, species, vehicles, starships } = useLoaderData();
 
-  console.log(useParams());
   return (
-    <div className="film-detail-container">
-      <div className="film-detail">
-        <img src={`/img/characters/1.jpg`} alt={`${name}`} />
+    <div className="person-detail-container">
+      <div className="person-detail">
+        <img src={`/img/people/${id}.jpg`} alt={`${name}`} />
         <div>
           <h3>
             {name}
           </h3>
-          <button onClick={() => navigation(`/people/page=${pageId}`, { relative: "path" })}>
+          <button onClick={() => navigate(-1)}>
            ← Back
           </button>
         </div>
       </div>
+      <StarshipsList starships={starships}/>
+      <VehiclesList vehicles={vehicles}/>
     </div>
   );
 };

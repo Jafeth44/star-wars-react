@@ -3,60 +3,39 @@ import PeopleCard from "../components/PeopleCard";
 import "../styles/people-page.css";
 
 export const People = () => {
-  let { id } = useParams();
-  typeof id === 'undefined' ? id = 1 : id;
-  id = parseInt(id);
-  const navigate = useNavigate();
-  const people = useLoaderData();
-
-  let personNum;
-  id == 1
-    ? (personNum = 0)
-    : id == 2
-    ? (personNum = 10)
-    : id == 3
-    ? (personNum = 20)
-    : id == 4
-    ? (personNum = 30)
-    : id == 5
-    ? (personNum = 40)
-    : id == 6
-    ? (personNum = 50)
-    : id == 7
-    ? (personNum = 60)
-    : id == 8
-    ? (personNum = 70)
-    : (personNum = 80);
-
+  let navigate = useNavigate();
+  let { pageId } = useParams();
+  let people = useLoaderData();
+  console.log(typeof pageId);
   return (
     <>
       <div className="people-container">
         {people?.map((data, id) => (
           <PeopleCard
-            img={id + personNum >= 16 ? id + personNum + 1 : id + personNum}
             key={id}
             name={data.name}
-            path={id + 1}
+            url={data.url}
           />
         ))}
         <div className="buttons-container">
           <button
-            disabled={id === 1 ? true : false}
-            onClick={() => navigate(`/people/${id - 1}`, { relative: "path" })}>
+            disabled={typeof pageId === 'undefined' ? true : pageId === 'page=1' ? true : false}
+            onClick={() => navigate(`/people/page=${parseInt(pageId.substring(pageId.length - 1)) - 1}`, { relative: "path" })}>
             Prev
           </button>
-          <button className={id == 1 ? 'active' : ''} onClick={() => navigate(`/people/1`, { relative: "path" })}>1</button>
-          <button className={id == 2 ? 'active' : ''} onClick={() => navigate(`/people/2`, { relative: "path" })}>2</button>
-          <button className={id == 3 ? 'active' : ''} onClick={() => navigate(`/people/3`, { relative: "path" })}>3</button>
-          <button className={id == 4 ? 'active' : ''} onClick={() => navigate(`/people/4`, { relative: "path" })}>4</button>
-          <button className={id == 5 ? 'active' : ''} onClick={() => navigate(`/people/5`, { relative: "path" })}>5</button>
-          <button className={id == 6 ? 'active' : ''} onClick={() => navigate(`/people/6`, { relative: "path" })}>6</button>
-          <button className={id == 7 ? 'active' : ''} onClick={() => navigate(`/people/7`, { relative: "path" })}>7</button>
-          <button className={id == 8 ? 'active' : ''} onClick={() => navigate(`/people/8`, { relative: "path" })}>8</button>
-          <button className={id == 9 ? 'active' : ''} onClick={() => navigate(`/people/9`, { relative: "path" })}>9</button>
+          <button className={pageId === `page=1` ? 'active' : typeof pageId === 'undefined' ? 'active' : ''} onClick={() => navigate(`/people/page=1`,{relative: 'path'})}>{1}</button>
+          <ListButton pageId={pageId} url={'page=2'} pageNum={'2'}/>
+          <ListButton pageId={pageId} url={'page=3'} pageNum={'3'}/>
+          <ListButton pageId={pageId} url={'page=4'} pageNum={'4'}/>
+          <ListButton pageId={pageId} url={'page=5'} pageNum={'5'}/>
+          <ListButton pageId={pageId} url={'page=6'} pageNum={'6'}/>
+          <ListButton pageId={pageId} url={'page=7'} pageNum={'7'}/>
+          <ListButton pageId={pageId} url={'page=8'} pageNum={'8'}/>
+          <ListButton pageId={pageId} url={'page=9'} pageNum={'9'}/>
+
           <button
-            disabled={id === 9 ? true : false}
-            onClick={() => navigate(`/people/${id + 1}`, { relative: "path" })}>
+            disabled={pageId === 'page=9' ? true : false}
+            onClick={() => navigate(`/people/page=${parseInt(pageId.substring(pageId.length - 1)) + 1}`, { relative: "path" })}>
             Next
           </button>
         </div>
@@ -64,3 +43,11 @@ export const People = () => {
     </>
   );
 };
+
+
+let ListButton = ({pageId ,pageNum, url}) => {
+  let navigate = useNavigate();
+  return (
+    <button className={pageId === `${url}` ? 'active' : ''} onClick={() => navigate(`/people/${url || ''}`,{relative: 'path'})}>{pageNum}</button>
+  )
+}
