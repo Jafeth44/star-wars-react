@@ -4,6 +4,7 @@
 }
 
 .film-detail-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,10 +12,10 @@
   backdrop-filter: blur(3px);
   margin: 20px;
   margin-bottom: 70px;
+  max-width: 1000px;
 }
 
 .film-detail {
-  max-width: 1000px;
   background-color: rgba(77, 77, 77, 0.5);
   padding: 10px 5px;
   display: flex;

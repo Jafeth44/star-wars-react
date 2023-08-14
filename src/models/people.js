@@ -1,5 +1,5 @@
 export default class People {
-  constructor({ name, height, weigth, hairColor, skinColor, eyeColor, birthYear, gender, homeWorld, films, species, vehicles, starships }) {
+  constructor({ name, height, weigth, hairColor, skinColor, eyeColor, birthYear, gender, homeWorld, films, species, vehicles, starships, url}) {
     this.name = name;
     this.height = height;
     this.weigth = weigth;
@@ -13,5 +13,6 @@ export default class People {
     this.species = species;
     this.vehicles = vehicles;
     this.starships = starships;
+    this.url = url;
   }
 }

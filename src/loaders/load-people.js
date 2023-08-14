@@ -14,7 +14,8 @@ const apiPeopleMapper = (jsonObject) => {
     films,
     species,
     vehicles,
-    starships
+    starships,
+    url
   } = jsonObject;
 
   return new People({
@@ -30,7 +31,8 @@ const apiPeopleMapper = (jsonObject) => {
     films,
     species,
     vehicles,
-    starships
+    starships,
+    url: url.map(data => data.match(/\/people\/[0-9]*/)[0]),
   })
 }
 

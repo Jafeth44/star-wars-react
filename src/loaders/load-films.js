@@ -11,8 +11,10 @@ const apiFilmMapper = (jsonObject) => {
     planets,
     starships,
     vehicles,
-    species
+    species,
+    url
   } = jsonObject;
+  
 
   return new Film({
     title,
@@ -20,11 +22,12 @@ const apiFilmMapper = (jsonObject) => {
     openingCrawl: opening_crawl,
     director,
     releaseDate: release_date,
-    characters,
-    planets,
-    starships,
-    vehicles,
-    species
+    characters: characters.map(data => data.match(/\/people\/[0-9]*/)[0]),
+    planets: planets.map(data => data.match(/\/planets\/[0-9]*/)[0]),
+    starships: starships.map(data => data.match(/\/starships\/[0-9]*/)[0]),
+    vehicles: vehicles.map(data => data.match(/\/vehicles\/[0-9]*/)[0]),
+    species: species.map(data => data.match(/\/species\/[0-9]*/)[0]),
+    url: url.match(/\/films\/[0-9]*/)[0],
   })
 };
 
@@ -34,6 +37,8 @@ export const fetchData = async () => {
   const data = res.results.map(apiFilmMapper);
   return data;
 };
+
+fetchData();
 
 export const fetchDataSingle = async ({params}) => {
   const url = await fetch(`https://swapi.dev/api/films/${params.id}`);

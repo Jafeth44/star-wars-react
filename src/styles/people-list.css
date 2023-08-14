@@ -1,0 +1,48 @@
+
+.people-list {
+  width: 100%;
+  margin-top: 20px;
+  max-width: 1000px;
+  background-color: rgba(77, 77, 77, 0.5);
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.171);
+  color: white;
+  border-radius: 4px;
+  transition: ease-in-out .30s;
+  
+  & div {
+    display: flex;
+    overflow: scroll;
+    padding: 10px;
+  }
+
+  & a {
+    width: 80px;
+    height: 80px;
+    padding: 0;
+    background: none;
+    margin: 0 10px;
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: 0 0 5px;
+    }
+  }
+
+  & img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  & h3 {
+    font-size: 1.2rem;
+    margin: 0 5px;
+    align-self: flex-start;
+    font-family: Jedi;
+    letter-spacing: 0.15ch;
+    font-weight: 400;
+  }
+}

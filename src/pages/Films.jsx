@@ -15,7 +15,7 @@ export const Films = () => {
             director={data.director}
             epidoseID={data.episodeID}
             img={id}
-            path={id+1}
+            url={data.url}
           />
         ))
       }
