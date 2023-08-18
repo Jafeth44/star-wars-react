@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../styles/planets-list.css';
 
 const PlanetsList = ({planets}) => {
-  return (
+  if (planets) return (
     <div className='planets-list'>
       <h3>Planets</h3>
       <div>

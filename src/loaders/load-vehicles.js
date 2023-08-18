@@ -35,7 +35,7 @@ const apiVehicleMapper = (jsonObject) => {
 }
 
 export const fetchVehicles = async({params}) => {
-  const url = await fetch(`https://swapi.dev/api/vehicles/?${params.pageId}`);
+  const url = await fetch(`https://swapi.dev/api/vehicles/?${params.pageId || ''}`);
   const res = await url.json();
   const data = res.results.map(apiVehicleMapper);
   console.log(data);

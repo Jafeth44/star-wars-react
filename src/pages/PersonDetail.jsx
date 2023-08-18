@@ -23,8 +23,8 @@ export const PersonDetail = () => {
           </button>
         </div>
       </div>
-      <StarshipsList starships={starships}/>
-      <VehiclesList vehicles={vehicles}/>
+      {starships.length > 0 ? (<StarshipsList starships={starships}/>) : null}
+       { vehicles.length > 0 ? (<VehiclesList vehicles={vehicles}/>) : null}
     </div>
   );
 };

@@ -1,17 +1,16 @@
-import { NavLink, Navigate, useNavigation } from "react-router-dom";
+import { NavLink, useNavigation } from "react-router-dom";
 import "../styles/nav-bar.css";
-import { People } from "../pages/People";
-
+import PropTypes from 'prop-types';
 
 const Navbar = () => {
   return (
     <nav>
-      <NavLinks name={"films"} route={"/films"}/>
+      <NavLinks name={"films"} route={"films"}/>
       <NavLinks name={"people"} route={"people"}/>
-      <NavLinks name={"planets"} route={"/planets/1"} />
-      <NavLinks name={"species"} route={"/species/1"} />
-      <NavLinks name={"starships"} route={"/starships/1"} />
-      <NavLinks name={"vehicles"} route={"/vehicles/1"} />
+      <NavLinks name={"planets"} route={"planets"} />
+      <NavLinks name={"species"} route={"species"} />
+      <NavLinks name={"starships"} route={"starships"} />
+      <NavLinks name={"vehicles"} route={"vehicles"} />
     </nav>
   );
 };
@@ -29,4 +28,10 @@ function NavLinks({ name, route }) {
     </NavLink>
   );
 }
+
+NavLinks.propTypes = {
+  name: PropTypes.string,
+  route: PropTypes.string,
+}
+
 export default Navbar;

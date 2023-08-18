@@ -31,16 +31,15 @@ const apiFilmMapper = (jsonObject) => {
   })
 };
 
-export const fetchData = async () => {
+export const fetchFilms = async () => {
   const url = await fetch("https://swapi.dev/api/films/");
   const res = await url.json();
   const data = res.results.map(apiFilmMapper);
   return data;
 };
 
-fetchData();
 
-export const fetchDataSingle = async ({params}) => {
+export const fetchFilmSingle = async ({params}) => {
   const url = await fetch(`https://swapi.dev/api/films/${params.id}`);
   const res = await url.json();
   const data = apiFilmMapper(res);

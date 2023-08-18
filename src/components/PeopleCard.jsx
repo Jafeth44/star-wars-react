@@ -5,7 +5,7 @@ const PeopleCard = ({name, url}) => {
   const navigate = useNavigate();
 
   return (
-    <div className="people-card" onClick={() => {console.log(url);navigate(url+'/data', {relative: "path"})}}>
+    <div className="people-card" onClick={() => {navigate(url+'/data', {relative: "path"})}}>
       <img src={`/img/${url}.jpg`} alt={name} />
       <h3>{name}</h3>
     </div>

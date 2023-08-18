@@ -38,11 +38,16 @@ const apiStarshipMapper = (jsonObject) => {
   })
 }
 
-export const fetchStarships = async () => {
-  const url = await fetch(`https://swapi.dev/api/starships/`);
+export const fetchStarships = async ({params}) => {
+  const url = await fetch(`https://swapi.dev/api/starships/?${params.pageId || ''}`);
   const res = await url.json();
   const data = res.results.map(apiStarshipMapper);
   console.log(data);
 };
 
-fetchStarships();
+export const fetchStarshipsSingle = async ({params}) => {
+  const url = await fetch(`https://swapi.dev/api/starships/${params.id}`);
+  const res = await url.json();
+  const data = apiStarshipMapper(res);
+  return data;
+};
