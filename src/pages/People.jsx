@@ -35,7 +35,7 @@ export const People = () => {
 
           <button
             disabled={pageId === 'page=9' ? true : false}
-            onClick={() => navigate(`/people/page=${parseInt(pageId.substring(pageId.length - 1)) + 1}`, { relative: "path" })}>
+            onClick={() => navigate(`/people/page=${typeof pageId === 'undefined' ? 2 : parseInt(pageId.substring(pageId.length - 1)) + 1}`, { relative: "path" })}>
             Next
           </button>
         </div>

@@ -1,5 +1,5 @@
 export default class Vehicle {
-  constructor({name, model, manufacturer, costInCredits, lengthInUnits, maxAtmospheringSpeed, crew, passengers, cargoCapacity, consumables, pilots, films}) {
+  constructor({name, model, manufacturer, costInCredits, lengthInUnits, maxAtmospheringSpeed, crew, passengers, cargoCapacity, consumables, pilots, films, url}) {
     this.name = name;
     this.model = model;
     this.manufacturer = manufacturer;
@@ -12,5 +12,6 @@ export default class Vehicle {
     this.consumables = consumables;
     this.pilots = pilots;
     this.films = films;
+    this.url = url;
   }
 }
