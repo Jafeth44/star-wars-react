@@ -42,7 +42,7 @@ export const fetchStarships = async ({params}) => {
   const url = await fetch(`https://swapi.dev/api/starships/?${params.pageId || ''}`);
   const res = await url.json();
   const data = res.results.map(apiStarshipMapper);
-  console.log(data);
+  return data;
 };
 
 export const fetchStarshipsSingle = async ({params}) => {

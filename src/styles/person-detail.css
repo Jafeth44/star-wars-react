@@ -20,16 +20,24 @@
   background-color: rgba(77, 77, 77, 0.5);
   padding: 10px 5px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.171);
   color: white;
   border-radius: 4px;
   transition: ease-in-out .30s;
+  text-transform: lowercase;
 }
 
 .person-detail > div > * {
   padding: 10px;
+}
+
+.person-detail > div {
+  width: 100%;
+
+  & p {
+    margin: 20px;
+  }
 }
 
 

@@ -16,6 +16,10 @@ import { fetchStarships, fetchStarshipsSingle } from './loaders/load-starships.j
 import { fetchVehicles, fetchVehicleSingle } from './loaders/load-vehicles.js';
 import { Redirect } from './pages/Redirect.jsx';
 import { PersonDetail } from './pages/PersonDetail.jsx';
+import { PlanetsDetail } from './pages/PlanetsDetail.jsx';
+import { SpeciesDetail } from './pages/SpeciesDetail.jsx';
+import { StarshipDetail } from './pages/StarshipsDetail.jsx';
+import { VehiclesDetail } from './pages/VehiclesDetail.jsx';
 
 const router = createBrowserRouter([
   {
@@ -60,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'planets/:id/data',
-        element: <Planets />,
+        element: <PlanetsDetail />,
         loader: fetchPlanetSingle,
       },
       {
@@ -74,8 +78,8 @@ const router = createBrowserRouter([
         loader: fetchSpecies,
       },
       {
-        path: 'species/id/data',
-        element: <Species />,
+        path: 'species/:id/data',
+        element: <SpeciesDetail />,
         loader: fetchSpeciesSingle,
       },
       {
@@ -90,7 +94,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'starships/:id/data',
-        element: <Starships />,
+        element: <StarshipDetail />,
         loader: fetchStarshipsSingle,
       },
       {
@@ -105,7 +109,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'vehicles/:id/data',
-        element: <Vehicles />,
+        element: <VehiclesDetail />,
         loader: fetchVehicleSingle,
       },
     ]

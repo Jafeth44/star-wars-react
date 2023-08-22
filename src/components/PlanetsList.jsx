@@ -9,7 +9,7 @@ const PlanetsList = ({planets}) => {
       <div>
         {
           planets?.map((data, id) => (
-            <Link key={id} to={data}>
+            <Link key={id} to={data+'/data'}>
               <img src={`/img${data}.jpg`} alt="link to planets"/>
             </Link>
           ))

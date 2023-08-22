@@ -9,7 +9,7 @@ const VehiclesList = ({vehicles}) => {
       <div>
         {
           vehicles?.map((data, id) => (
-            <Link key={id} to={data}>
+            <Link key={id} to={data+'/data'}>
               <img src={`/img${data}.jpg`} alt="link to vehicle"/>
             </Link>
           ))

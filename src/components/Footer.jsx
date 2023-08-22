@@ -2,7 +2,8 @@
 export const Footer = () => {
   return (
     <footer>
-      <p>Developed by Bayron Ocampo</p>
+      <p>Bayron Ocampo</p>
+      <a href="https://github.com/Jafeth44"><i className="fab fa-github"></i></a>
     </footer>
   )
 };
