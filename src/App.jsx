@@ -23,7 +23,7 @@ const App = () => {
               unmountOnExit
           > 
           <div className="page">
-            {navigation.state === "loading" ? <h1>Loading...</h1> : <Outlet />}
+            {navigation.state === "loading" ? <h1 className="loading">Loading...</h1> : <Outlet />}
           </div>
           </CSSTransition>
         </SwitchTransition>

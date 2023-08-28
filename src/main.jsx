@@ -20,12 +20,17 @@ import { PlanetsDetail } from './pages/PlanetsDetail.jsx';
 import { SpeciesDetail } from './pages/SpeciesDetail.jsx';
 import { StarshipDetail } from './pages/StarshipsDetail.jsx';
 import { VehiclesDetail } from './pages/VehiclesDetail.jsx';
+import { Home } from './pages/Home.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '*',
+    path: '/',
     element: <App />,
     children: [
+      {
+        path: '/',
+        element: <Home />
+      },
       {
         path: 'films',
         element: <Films />,

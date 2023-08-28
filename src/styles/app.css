@@ -69,6 +69,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-content: center;
 }
 
 .page-enter {
@@ -80,6 +81,19 @@ footer {
   opacity: 1;
   transform: scale(1);
   transition: opacity 300ms, transform 300ms;
+}
+
+.loading, .home {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #16edf9;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 3rem;
+  width: max-content;
+  margin: 0 auto;
 }
 
 .page-exit {

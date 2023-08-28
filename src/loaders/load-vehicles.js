@@ -48,3 +48,5 @@ export const fetchVehicleSingle = async ({params}) => {
   const data = apiVehicleMapper(res);
   return data;
 };
+
+const html = document.createElement
