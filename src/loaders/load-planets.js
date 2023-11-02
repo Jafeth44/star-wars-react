@@ -32,7 +32,7 @@ const apiPlanetMapper = (jsonObject) => {
 
 
 export const fetchPlanets = async ({params}) => {
-  const url = await fetch(`https:swapi.dev/api/planets/?page=${params.pageId || '1'}`);
+  const url = await fetch(`https:swapi.dev/api/planets/?${params.pageId || 'page=1'}`);
   const res = await url.json();
   const data = res.results.map(apiPlanetMapper);
   return data;
